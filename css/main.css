@@ -1,0 +1,1339 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #242424;
+}
+
+section {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* MAIN COLOR #FAFAFA, #242424 */
+/* .libre-baskerville-regular {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.libre-baskerville-bold {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.libre-baskerville-regular-italic {
+  font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: italic;
+} */
+
+/* NOTICE */
+.notice {
+    width: 100vw;
+    height: 30px;
+    background: #242424;
+    color: #f5f5f5;
+    font-size: 0.8rem;
+    letter-spacing: 0.02rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    background: #FAFAFA;
+    border-bottom: 1px solid #242424;
+    z-index: 1000;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    /* 모든 자식(햄버거/로고 등) 수직 정렬 */
+    justify-content: space-between;
+}
+
+.search-icon svg {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.nav-wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 30px;
+    /* position: relative; */
+}
+
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-item {
+    position: static;
+    /* nav-item이 relative면 dropdown이 100vw가 안 맞을 수 있음 */
+}
+
+
+.nav-item:hover .dropdown {
+    display: block;
+    opacity: 1;
+}
+
+.nav-left a,
+.nav-right a {
+    text-decoration: none;
+    color: #242424;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo img {
+    height: 25px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    height: 40vh;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 800;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+
+.dropdown-inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: calc(100%);
+    /* 패딩만큼 감안 */
+    padding: 0rem 2rem;
+    box-sizing: border-box;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-top: 1rem;
+}
+
+.dropdown-menu>a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+}
+
+.dropdown-image {
+    flex-shrink: 0;
+    height: 100%;
+    aspect-ratio: 2/ 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.dropdown-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.search-bar {
+    width: 100%;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 1rem 2rem;
+    margin: 2rem 0rem;
+    font-size: 1.2rem;
+    font-weight: 300;
+    border: 1px solid #242424;
+}
+
+
+
+
+/* Fullscenn Split Image */
+.split-screen {
+    height: 92vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.screen-container {
+    display: flex;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    /* top: 0;
+    left: 0; */
+}
+
+.image-container {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.split-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay span {
+    font-family: 'Canela Text', serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 1.5rem;
+    color: #242424;
+    letter-spacing: -0.02em;
+}
+
+.split-screen h1 {
+    position: absolute;
+    z-index: 2;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Canela Text', serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    letter-spacing: -0.1rem;
+    /* background-image: url(/logo.svg);
+    background-size: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 8%;
+    aspect-ratio: 3/1; */
+}
+
+.title {
+    width: 100%;
+    height: 100px;
+    border-top: solid 1px #242424;
+    border-bottom: solid 1px #242424;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0px 50px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.title h2 {
+    font-family: 'Canela Text', serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.title>a {
+    text-decoration: none;
+    font-family: "Libre Baskerville", serif;
+    font-size: 14px;
+    color: #242424;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    border: solid 1px #242424;
+    border-radius: 10rem;
+}
+
+/* Shop Collection */
+.collection-grid {
+    margin-top: 0;
+}
+
+.collection-grid ul {
+    display: flex;
+    width: 100vw;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+    margin-bottom: 150px;
+    border-bottom: 1px solid #242424;
+}
+
+.collection-grid li {
+    width: 25vw;
+    box-sizing: border-box;
+    border-right: 1px solid #242424;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.collection-grid li:last-child {
+    border-right: none;
+}
+
+.image-box {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.6s ease;
+}
+
+.image-box img.hover {
+    opacity: 0;
+}
+
+.image-box:hover img.default {
+    opacity: 0;
+}
+
+.image-box:hover img.hover {
+    opacity: 1;
+}
+
+.product_tit {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.9rem;
+    color: #242424;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.product_price {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 0rem;
+    margin-bottom: 1.5rem;
+    font-family: "Pretendard Variable", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #939393;
+}
+
+
+.product_tit span,
+.product-name span {
+    font-style: italic;
+}
+
+
+.product_tit:hover,
+.product_price:hover {
+    color: #999999;
+}
+
+/* SUMMER COLLECTION */
+.summer-collection {
+    width: 80%;
+    margin: auto;
+    border: 1px solid #242424;
+    display: flex;
+    aspect-ratio: 2 / 1;
+    margin-bottom: 150px;
+}
+
+.summer-collection>div {
+    flex: 1;
+    aspect-ratio: 1 / 1;
+    /* 각각의 내부 div는 정사각형 */
+    overflow: hidden;
+}
+
+.summer-collection .season-image,
+.summer-collection .slider {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.season-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slider>h2 {
+    font-family: 'Canela Text', serif;
+    font-weight: 100;
+    font-style: normal;
+    font-size: clamp(2rem, 2vw, 2.8rem);
+    letter-spacing: -0.02em;
+}
+
+/* JOURNAL */
+.journal {
+    margin-bottom: 200px;
+}
+
+.journal-preview {
+    width: 100vw;
+    height: 70vh;
+    overflow: hidden;
+}
+
+.journal-preview ul {
+    width: 100%;
+    display: flex;
+    height: 100%;
+}
+
+.journal-preview ul li {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.journal-preview ul li a:hover .journal-card img {
+    filter: brightness(50%);
+    transition: all 0.7s ease;
+}
+
+.journal-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.journal-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.journal-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.journal-text h3 {
+    margin: 0 0 0.5rem;
+    color: #f5f5f5;
+    font-family: "Libre Baskerville", serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.7rem;
+    letter-spacing: -0.04em;
+}
+
+.journal-text p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #f5f5f5;
+}
+
+.read-more {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    border: 1px solid #f5f5f5;
+    border-radius: 50px;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Pretendard Variable", sans-serif;
+    transition: all 0.7s ease;
+}
+
+.journal-card:hover .read-more {
+    display: inline-block;
+}
+
+.read-more:hover {
+    background-color: #f5f5f5;
+    color: #242424;
+    transition: 0.7s;
+}
+
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 60px;
+    margin-top: 30px;
+    /* 버튼과 이미지 간 여백 확보 */
+}
+
+.slider-window {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    box-sizing: border-box;
+}
+
+.slide {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.product {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.img-wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+}
+
+.product-name,
+.product-price {
+    line-height: 1.4;
+}
+
+.product-name {
+    text-decoration: none;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.9rem;
+    color: #242424;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-family: "Pretendard Variable", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #939393;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    z-index: 10;
+    font-weight: 100;
+    /* 얇은 선을 위한 설정 */
+    line-height: 1;
+}
+
+.slider-btn.prev {
+    left: 0;
+}
+
+.slider-btn.next {
+    right: 0;
+}
+
+.slider-btn span {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-weight: 100;
+    font-size: 2rem;
+    line-height: 1;
+    border: none;
+}
+
+
+/* ABOUT */
+
+.about-link {
+    width: 80%;
+    margin: auto;
+    border: 1px solid #242424;
+    display: flex;
+    aspect-ratio: 4 / 1;
+    margin-bottom: 150px;
+
+}
+
+.about_image {
+    aspect-ratio: 3 / 1;
+    /* 각각의 내부 div는 정사각형 */
+    overflow: hidden;
+    width: 65%;
+    border-right: 1px solid #242424;
+}
+
+.about_text {
+    width: 35%;
+    box-sizing: border-box;
+    padding: 2rem 5rem;
+    align-self: self-end;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about_text>h2 {
+    font-family: 'Canela Text', serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.about_text>p {
+    font-family: "Pretendard Variable", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: -0.02rem;
+    line-height: 1.6;
+}
+
+.about_text>a {
+    text-decoration: none;
+    font-family: "Libre Baskerville", serif;
+    font-size: 0.9rem;
+    color: #242424;
+    font-weight: 400;
+    font-style: normal;
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    border: solid 1px #242424;
+    border-radius: 10rem;
+    margin: 1rem 0rem;
+    align-self: flex-end;
+    margin-top: 1rem;
+}
+
+.about_text>a:hover {
+    background-color: #242424;
+    color: #FAFAFA;
+}
+
+.about_image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .about-link {
+        flex-direction: column;
+        aspect-ratio: auto;
+    }
+
+    .about_image {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+    }
+
+    .about_text {
+        width: 100%;
+        padding: 2rem 1.5rem;
+        align-items: flex-start;
+    }
+
+    .about_text>h2 {
+        font-size: 1.2rem;
+        line-height: 1.4;
+    }
+
+    .about_text>p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .about_text>a {
+        align-self: flex-start;
+        margin-top: 1.5rem;
+    }
+}
+
+/* FOOTER */
+
+.site-footer {
+
+    font-family: "Pretendard Variable", sans-serif;
+    background: #fff;
+    padding: 0;
+    width: 100%;
+}
+
+.footer-grid {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    border-top: 1px solid #242424;
+    border-bottom: 1px solid #242424;
+}
+
+.footer-column {
+    flex: 1;
+    padding: 3rem 4rem;
+    border-right: 1px solid #242424;
+    box-sizing: border-box;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    aspect-ratio: 2/1;
+    letter-spacing: -0.02rem;
+}
+
+.footer-column:last-child {
+    border-right: none;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+    text-decoration: none;
+    color: #242424;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.footer-column strong {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: "Libre Baskerville", serif;
+    font-style: normal;
+    letter-spacing: 0rem;
+    text-decoration: underline;
+    text-underline-offset: 0.4rem;
+    text-decoration-thickness: 1px;
+    color: #242424;
+}
+
+.footer-column p {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    font-weight: 300;
+}
+
+.footer-column em {
+    font-size: 1.6rem;
+    font-style: normal;
+}
+
+.logo-column {
+    justify-content: center;
+    text-align: center;
+}
+
+.logo-column img {
+    max-width: 120px;
+    height: auto;
+    object-fit: cover;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #242424;
+    font-family: "Libre Baskerville", serif;
+    font-style: normal;
+}
+
+.mobile-gnb {
+    display: none;
+    position: relative;
+    z-index: 1200;
+}
+
+/* 모바일 메뉴(초기엔 숨김) */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.96);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 48px 20px 20px 20px;
+    z-index: 1100;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.mobile-menu a {
+    padding: 1.1rem 0;
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    color: #242424;
+    text-decoration: none;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+}
+
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+.mobile-menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    font-family: 'Libre Baskerville', serif;
+    /* 원하는 폰트로 */
+    color: #242424;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    letter-spacing: -0.03em;
+}
+
+.logo-mobile {
+    display: none;
+    margin: 10px;
+}
+
+/* 햄버거 & 메뉴 모바일에서만 보이게 */
+@media (max-width: 900px) {
+    .mobile-gnb {
+        display: block;
+    }
+
+    .header .nav-wrapper,
+    .header .nav-left,
+    .header .nav-right,
+    .logo {
+        display: none !important;
+    }
+
+    .mobile-menu {
+        display: flex;
+
+    }
+
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+}
+
+/* ----- 모바일/태블릿 반응형 ----- */
+@media (max-width: 900px) {
+
+    .title h2 {
+        font-size: 2rem;
+        /* 모바일에서 원하는 크기로! (예시: 2rem) */
+    }
+
+    .header {
+        height: auto;
+        /* 고정 높이 해제 */
+        min-height: 54px;
+        padding-bottom: 0.5rem;
+    }
+
+    .split-screen {
+        height: auto !important;
+        min-height: unset !important;
+        padding: 0;
+    }
+
+    .screen-container {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        position: static !important;
+        gap: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+    }
+
+    .image-container {
+        width: 100% !important;
+        aspect-ratio: 4 / 5 !important;
+        /* ⭐️ 여기 핵심! 원하는 비율로 조정 가능 */
+        height: auto !important;
+        min-height: 200px !important;
+        /* 너무 작아질 때 대비 */
+        max-width: 100vw !important;
+        position: relative !important;
+        overflow: hidden !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .image-container img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        display: block !important;
+        margin: 0 !important;
+    }
+
+    .split-screen h1 {
+        position: static !important;
+        transform: none !important;
+        font-size: 3rem !important;
+        margin: 16px 0 0 0 !important;
+        text-align: center !important;
+    }
+
+
+    .nav-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 0 8px;
+        height: auto;
+        /* 높이 자동 */
+        min-height: unset;
+        background: #FAFAFA;
+        position: static;
+    }
+
+    .mobile-gnb {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        z-index: 1200;
+        justify-content: space-between;
+    }
+
+    .logo-mobile {
+        display: block !important;
+        align-self: center;
+
+    }
+
+    .logo-mobile img {
+        width: 90px !important;
+        max-width: 90px !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+        object-fit: cover !important;
+    }
+
+    .nav-wrapper,
+    .nav-left,
+    .nav-right {
+        display: none !important;
+    }
+
+    .nav-left,
+    .nav-right {
+        order: 2;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6rem;
+        width: 100%;
+        margin: 0 auto 0 auto;
+    }
+
+    .nav-left a,
+    .nav-right a {
+        display: inline-block;
+        padding: 0.5rem 0.7rem;
+        font-size: 13px;
+        word-break: keep-all;
+        white-space: nowrap;
+        text-align: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .title h2 {
+        font-size: 2rem;
+        /* 모바일에서 원하는 크기로! (예시: 2rem) */
+    }
+
+    .nav-wrapper {
+        padding: 0 2px;
+        gap: 0.2rem;
+    }
+
+    .nav-left,
+    .nav-right {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-left a,
+    .nav-right a {
+        display: block;
+        width: 100%;
+        padding: 0.6rem 0;
+        font-size: 12px;
+        border-bottom: 1px solid #eee;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .nav-left a:last-child,
+    .nav-right a:last-child {
+        border-bottom: none;
+    }
+}
+
+/* 2. 스플릿 메인 화면 */
+@media (max-width: 900px) {
+    .split-screen {
+        height: auto;
+        min-height: 480px;
+    }
+
+    .screen-container {
+        flex-direction: column;
+        height: auto;
+        position: static;
+        gap: 12px;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 230px;
+    }
+
+    .split-screen h1 {
+        position: static;
+        transform: none;
+        font-size: 2rem;
+        margin: 16px 0 0 0;
+    }
+}
+
+/* 3. 타이틀 */
+@media (max-width: 900px) {
+    .title {
+        height: auto;
+        flex-direction: column;
+        padding: 18px 14px;
+        gap: 10px;
+    }
+
+    .title h2 {
+        font-size: 2rem;
+    }
+}
+
+/* 4. 쇼핑 컬렉션 (카드 그리드) */
+@media (max-width: 1100px) {
+    .collection-grid ul {
+        flex-wrap: wrap;
+        flex-direction: row;
+        width: 100%;
+        gap: 0;
+    }
+
+    .collection-grid li {
+        width: 48vw;
+        min-width: 220px;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+        margin-bottom: 12px;
+    }
+}
+
+@media (max-width: 650px) {
+    .collection-grid ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .collection-grid li {
+        width: 98vw;
+        min-width: unset;
+        border-bottom: 1px solid #242424;
+        border-right: none;
+    }
+}
+
+/* 5. 썸머 컬렉션 */
+@media (max-width: 1000px) {
+    .summer-collection {
+        flex-direction: column;
+        width: 98vw;
+        aspect-ratio: auto;
+        min-height: 300px;
+        margin-bottom: 60px;
+    }
+
+    .summer-collection>div {
+        aspect-ratio: auto;
+    }
+    .summer-collection h2{
+        margin-top: 20px;
+    }
+    .slider-wrapper {
+        padding: 20px 50px;
+    }
+}
+
+/* 6. 저널 */
+@media (max-width: 900px) {
+    .journal-preview {
+        width: 100vw;
+        height: auto;
+        /* 높이 고정하지 않음 */
+        overflow: visible;
+        /* 자르지 않음 */
+    }
+
+    .journal-preview ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        height: auto;
+        /* 높이 고정하지 않음 */
+    }
+
+    .journal-preview ul li {
+        flex: none;
+        /* flex 비율로 늘리지 않음 */
+        width: 100vw;
+        /* 모바일 전체 너비 */
+        min-height: unset;
+        /* 강제 높이 해제 */
+        aspect-ratio: 4/5;
+        /* 원하는 비율로! 예: 16:9 */
+        overflow: hidden;
+        margin-bottom: 12px;
+        /* 원하는 만큼 아래 여백 */
+        box-sizing: border-box;
+    }
+
+    .journal-card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .journal-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: unset;
+        aspect-ratio: 16/9;
+        /* 같은 비율 맞춰주기 */
+        display: block;
+    }
+}
+
+/* 7. ABOUT 섹션 */
+@media (max-width: 900px) {
+    .about-link {
+        flex-direction: column;
+        width: 98vw;
+        aspect-ratio: auto;
+        margin-bottom: 60px;
+    }
+
+    .about_image {
+        width: 100%;
+        aspect-ratio: 16 / 8;
+        border-right: none;
+        border-bottom: 1px solid #242424;
+    }
+
+    .about_text {
+        width: 100%;
+        padding: 1.5rem;
+        align-items: flex-start;
+    }
+
+    .about_text>h2 {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+    }
+}
+
+/* 8. 푸터 */
+@media (max-width: 900px) {
+
+    .footer-grid,
+    .footer-bottom {
+        display: none !important;
+        /* 기존 푸터 요소 숨김 */
+    }
+
+    .simple-footer {
+        display: block !important;
+        background: #242424;
+        width: 100vw;
+        padding: 20px 0 20px 0;
+        font-family: 'Pretendard', sans-serif;
+    }
+
+    .simple-footer-inner {
+        max-width: 480px;
+        margin: 0 auto;
+        text-align: center;
+        color: #f5f5f5;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        letter-spacing: -0.02em;
+    }
+
+    .footer-text {
+        font-family: "Libre Baskerville", serif;
+    }
+
+    .simple-footer a {
+        color: #f5f5f5;
+        font-size: 0.94em;
+        margin: 10px;
+    }
+
+    .footer-copy {
+        font-size: 0.88em;
+        font-family: "Libre Baskerville", serif;
+    }
+    
+}
+
+.simple-footer {
+    display: none;
+}

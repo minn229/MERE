@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERE</title>
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="favicon.png?v=2" type="image/png" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="preload" href="CanelaText-Thin.woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Canela Text';
+            src: url('/fonts/CanelaText-Thin.woff2') format('woff2'),
+                url('/fonts/CanelaText-Thin.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="notice" id="notice">Free shipping on all orders.</div>
+
+    <header class="header">
+        <div class="mobile-gnb">
+
+            <div class="logo-mobile">
+                <a href="index.html"><img src="logo.svg" alt="Logo"></a>
+            </div>
+            <button class="mobile-menu-btn" id="hamburgerBtn">
+                Menu
+            </button>
+        </div>
+        <!-- 모바일 메뉴 (숨김) -->
+        <nav class="mobile-menu" id="mobileMenu">
+            <a href="#">Shop</a>
+            <a href="#">About</a>
+            <a href="#">Journal</a>
+            <a href="#">Community</a>
+            <a href="#">Log in</a>
+            <a href="#">Cart</a>
+        </nav>
+        <div class="nav-wrapper">
+            <nav class="nav-left">
+                <div class="nav-item" data-dropdown-id="shop">
+                    <a href="#">Shop</a>
+                    <div class="dropdown" id="dropdown-shop">
+                        <div class="dropdown-inner">
+                            <div class="dropdown-menu">
+                                <a href="#">All</a>
+                                <a href="#">Bedding</a>
+                                <a href="#">Sleepwear</a>
+                                <a href="#">Living</a>
+                            </div>
+                            <div class="dropdown-image">
+                                <img src="/image/dropshop_1.webp" alt="Shop Image">
+                                <img src="/image/dropshop_2.webp" alt="Shop Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+                <a href="#">Journal</a>
+                <div class="nav-item" data-dropdown-id="community">
+                    <a href="#">Community</a>
+                    <div class="dropdown" id="dropdown-community">
+                        <div class="dropdown-inner">
+                            <div class="dropdown-menu">
+                                <a href="#">Notice</a>
+                                <a href="#">FAQ</a>
+                            </div>
+                            <div class="dropdown-image">
+                                <img src="/image/dropcom_1.webp" alt="Community Image">
+                                <img src="/image/dropcom_2.webp" alt="Community Image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="logo">
+                <a href="index.html"><img src="logo.svg" alt="Logo"></a>
+            </div>
+
+            <nav class="nav-right">
+                <div class="nav-item" data-dropdown-id="search">
+                    <a class="search-icon" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="24" height="24">
+                            <circle cx="42.71" cy="42.93" r="32.14" fill="none" stroke="#000" stroke-width="7.44"
+                                stroke-miterlimit="10" />
+                            <line x1="65.99" y1="65.77" x2="89.43" y2="89.21" fill="none" stroke="#000"
+                                stroke-width="7.44" stroke-linecap="round" stroke-miterlimit="10" />
+                        </svg>
+                    </a>
+                    <div class="dropdown" id="dropdown-search">
+                        <div class="dropdown-inner">
+                            <div class="search-bar">
+                                <input style="font-family: Libre Baskerville, serif ;" type="text" placeholder="search">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#">Log in</a>
+                <a href="#">Cart(0)</a>
+            </nav>
+        </div>
+    </header>
+    <!-- 1. Hero Section: Fullscreen Split Image -->
+    <section class="split-screen">
+        <div class="screen-container">
+            <a href="/collection1" class="image-container">
+                <img src="/image/main_1.webp" alt="main1">
+                <div class="overlay">
+                    <span>Sleepwear</span>
+                </div>
+            </a>
+            <a href="/collection2" class="image-container">
+                <img src="/image/main_2.webp" alt="main2">
+                <div class="overlay">
+                    <span>Bedding</span>
+                </div>
+            </a>
+        </div>
+        <h1> The Essence of Rest.
+        </h1>
+    </section>
+
+    <!-- 2. Shop Collection -->
+    <section class="shop-colleciton">
+        <div class="title">
+            <h2>Shop Collection</h2>
+            <a href="#">shop now</a>
+        </div>
+        <div class="collection-grid">
+            <ul>
+                <li>
+                    <div class="image-box">
+                        <img src="/image/product_1.webp" alt="Product 1" class="default" />
+                        <img src="/image/product_1_hover.webp" alt="Product 1 Hover" class="hover" />
+                    </div>
+                    <a class="product_tit" href="#">Original Bedding Set - <span>Off White</span></a>
+                    <a class="product_price" href="#">190,000원</a>
+                </li>
+                <li>
+                    <div class="image-box">
+                        <img src="/image/product_2.webp" alt="Product 2" class="default" />
+                        <img src="/image/product_2_hover.webp" alt="Product 2 Hover" class="hover" />
+                    </div>
+                    <a class="product_tit" href="#">Plain Cotton Topper - <span>Light Gray</span></a>
+                    <a class="product_price" href="#">170,000원</a>
+                </li>
+                <li>
+                    <div class="image-box">
+                        <img src="/image/product_3.webp" alt="Product 3" class="default" />
+                        <img src="/image/product_3_hover.webp" alt="Product 3 Hover" class="hover" />
+                    </div>
+                    <a class="product_tit" href="#">Original Bedding Set - <span>Deep Black</span></a>
+                    <a class="product_price" href="#">190,000원</a>
+                </li>
+                <li>
+                    <div class="image-box">
+                        <img src="/image/product_4.webp" alt="Product 4" class="default" />
+                        <img src="/image/product_4_hover.webp" alt="Product 4 Hover" class="hover" />
+                    </div>
+                    <a class="product_tit" href="#">MERE Washable Rug</a>
+                    <a class="product_price" href="#">45,000원</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- 3. Summer Collection (Split) -->
+    <section class="summer-collection">
+        <div class="season-image">
+            <img src="/image/season_1.webp" alt="season-image">
+        </div>
+        <div class="slider">
+            <h2>Summer Collection</h2>
+            <p style="font-size: 1.1rem; letter-spacing: -0.04rem; 
+            font-family: Pretendard Variable, sans-serif;
+            font-weight: 300;
+            margin: 1.2rem 0rem;">
+                부드럽고 시원한 감촉, MERE의 여름 컬렉션
+            </p>
+            <div class="slider-wrapper">
+                <button class="slider-btn prev">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+
+                <div class="slider-window">
+                    <div class="slider-track">
+                        <div class="slide">
+                            <div class="product">
+                                <a href="#">
+                                    <div class="img-wrapper">
+                                        <img src="/image/s_product_1.webp" alt="Product 1" />
+                                    </div>
+                                </a>
+                                <a href="#" class="product-name">Short Sleepwear Set</a>
+                                <a href="#" class="product-price">120,000원</a>
+                            </div>
+                            <div class="product">
+                                <a href="#">
+                                    <div class="img-wrapper">
+                                        <img src="/image/s_product_2.webp" alt="Product 2" />
+                                    </div>
+                                </a>
+                                <a href="#" class="product-name">Soft Linen Blanket - <span>Sky</span></a>
+                                <a href="#" class="product-price">99,000원</a>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <div class="product">
+                                <a href="#">
+                                    <div class="img-wrapper">
+                                        <img src="/image/s_product_3.webp" alt="Product 3" />
+                                    </div>
+                                </a>
+                                <a href="#" class="product-name">Striped Linen Bedding Set</a>
+                                <a href="#" class="product-price">210,000원</a>
+                            </div>
+                            <div class="product">
+                                <a href="#">
+                                    <div class="img-wrapper">
+                                        <img src="/image/s_product_4.webp" alt="Product 4" />
+                                    </div>
+                                </a>
+                                <a href="#" class="product-name">Soft Linen Blanket - <span>Rose</span></a>
+                                <a href="#" class="product-price">99,000원</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="slider-btn next">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- 4. Journal Preview -->
+    <section class="journal">
+        <div class="title">
+            <h2>Moments of MERE</h2>
+            <a href="#">read journal</a>
+        </div>
+        <div class="journal-preview">
+            <ul>
+                <li>
+                    <a href="#">
+                        <div class="journal-card">
+                            <img src="/image/journal_1.webp" alt="Journal 1">
+                            <div class="journal-text">
+                                <h3>2025 SUMMER</h3>
+                                <button class="read-more">read more</button>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="journal-card">
+                            <img src="/image/journal_2.webp" alt="Journal 2">
+                            <div class="journal-text">
+                                <h3>MERE PAPER Vol.1</h3>
+                                <button class="read-more">read more</button>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="journal-card">
+                            <img src="/image/journal_3.webp" alt="Journal 3">
+                            <div class="journal-text">
+                                <h3>Objects of Rest</h3>
+                                <button class="read-more">read more</button>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 5. About Link -->
+    <section class="about-link">
+        <div class="about_image"><img src="/image/about.webp" alt=""></div>
+        <div class="about_text">
+            <h2>MERE offers rest and softness in your daily life.</h2>
+            <p>아무것도 하지 않아도 되는 공간,
+                <br>그저 숨을 쉬는 것으로 충분한 하루.
+                <br>MERE는 그런 시간의 결을 만들어갑니다.
+            </p>
+            <a href="">About MERE</a>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-column">
+                <ul>
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">쇼핑몰 이용안내</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <strong>Customer Center</strong>
+                <p style="line-height: 1.5;">주말 및 공휴일 휴무<br>10:00 - 17:00</p>
+                <p><em>1544-0000</em></p>
+            </div>
+            <div class="footer-column logo-column">
+                <a href="index.html"><img src="logomark.svg" alt="MERE Logo"></a>
+            </div>
+            <div class="footer-column">
+                <strong>Service</strong>
+                <ul>
+                    <li><a href="#">자주 묻는 질문</a></li>
+                    <li><a href="#">배송 및 교환/반품</a></li>
+                    <li><a href="#">매장안내</a></li>
+                    <li><a href="#">공지사항</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <strong>Social</strong>
+                <ul>
+                    <li><a href="#">인스타그램</a></li>
+                    <li><a href="#">유튜브</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">©2025 MERE All rights reserved.</div>
+    </footer>
+    <footer class="simple-footer">
+        <div class="simple-footer-inner">
+            <div class="footer-text">
+                ©2025 MERE<br>
+                <a href="#">이용약관</a> ·
+                <a href="#">개인정보처리방침</a> ·
+                <a href="#">문의</a>
+            </div>
+            <div class="footer-copy">
+                All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const track = document.querySelector('.slider-track');
+        const slides = document.querySelectorAll('.slide');
+        const nextBtn = document.querySelector('.slider-btn.next');
+        const prevBtn = document.querySelector('.slider-btn.prev');
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                track.style.transform = `translateX(-${100 * currentIndex}%)`;
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                track.style.transform = `translateX(-${100 * currentIndex}%)`;
+            }
+        });
+    </script>
+    <script>
+        const searchItem = document.querySelector('.nav-item[data-dropdown-id="search"]');
+        const searchDropdown = document.getElementById('dropdown-search');
+
+        let hoverTimer;
+
+        function showSearchDropdown() {
+            searchDropdown.style.display = 'block';
+            requestAnimationFrame(() => {
+                searchDropdown.style.maxHeight = '500px';
+                searchDropdown.style.opacity = '1';
+            });
+        }
+
+        function hideSearchDropdown() {
+            searchDropdown.style.maxHeight = '0';
+            searchDropdown.style.opacity = '0';
+            setTimeout(() => {
+                if (!searchItem.matches(':hover') && !searchDropdown.matches(':hover')) {
+                    searchDropdown.style.display = 'none';
+                }
+            }, 400);
+        }
+
+        searchItem.addEventListener('mouseenter', showSearchDropdown);
+        searchItem.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimer);
+            hoverTimer = setTimeout(hideSearchDropdown, 100);
+        });
+
+        searchDropdown.addEventListener('mouseenter', () => {
+            clearTimeout(hoverTimer);
+        });
+
+        searchDropdown.addEventListener('mouseleave', () => {
+            hoverTimer = setTimeout(hideSearchDropdown, 100);
+        });
+        window.addEventListener('scroll', () => {
+            if (searchDropdown.style.display === 'block') {
+                updateDropdownPosition();
+            }
+        });
+    </script>
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburgerBtn.addEventListener('click', function () {
+            document.body.classList.toggle('mobile-menu-open');
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.style.display = 'flex';
+            } else {
+                mobileMenu.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
